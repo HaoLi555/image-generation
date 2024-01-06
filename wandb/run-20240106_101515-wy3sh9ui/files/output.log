@@ -1,0 +1,20 @@
+Files already downloaded and verified
+Files already downloaded and verified
+    step 0:
+Training:   0%|                                                                                                                       | 0/10000 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "models/WGAN.py", line 158, in <module>
+    manager.train()
+  File "models/WGAN.py", line 112, in train
+    self.netD.safe_clip(-0.01,0.01)
+  File "/home/zhouqianrui/anaconda3/envs/mc/lib/python3.7/site-packages/jittor/__init__.py", line 1721, in __getattr__
+    return object.__getattribute__(self, key)
+AttributeError: 'Discriminator' object has no attribute 'safe_clip'
+Traceback (most recent call last):
+  File "models/WGAN.py", line 158, in <module>
+    manager.train()
+  File "models/WGAN.py", line 112, in train
+    self.netD.safe_clip(-0.01,0.01)
+  File "/home/zhouqianrui/anaconda3/envs/mc/lib/python3.7/site-packages/jittor/__init__.py", line 1721, in __getattr__
+    return object.__getattribute__(self, key)
+AttributeError: 'Discriminator' object has no attribute 'safe_clip'

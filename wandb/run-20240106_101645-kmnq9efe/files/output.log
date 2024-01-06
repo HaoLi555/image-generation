@@ -1,0 +1,38 @@
+Files already downloaded and verified
+Files already downloaded and verified
+    step 0:
+Training:   0%|                                                                                                                       | 0/10000 [00:04<?, ?it/s]
+Traceback (most recent call last):
+  File "models/WGAN.py", line 160, in <module>
+    manager.train()
+  File "models/WGAN.py", line 116, in train
+    self.wandb_run.log({'lossD':loss.data.mean()}, step=i)
+RuntimeError: [38m[f 0106 10:16:53.857531 60 executor.cc:686] 
+[38mExecute fused operator(20/57) failed. 
+[38m[JIT Source]: /home/zhouqianrui/.cache/jittor/jt1.3.8/g++8.5.0/py3.7.16/Linux-5.15.0-7xb0/IntelRXeonRPlax67/default/cu11.2.152_sm_70/jit/__opkey0_broadcast_to__Tx_float32__DIM_7__BCAST_19__opkey1_reindex__Tx_uint8__XDIM_4__YDIM___hash_e2118225335040_op.cc 
+[38m[OP TYPE]: fused_op:( broadcast_to, reindex, binary.multiply, reduce.add,)
+[38m[Input]: float32[16,3,4,4,], uint8[64,3,32,32,], 
+[38m[Output]: float32[64,16,16,16,], 
+[38m[Async Backtrace]: not found, please set env JT_SYNC=1, trace_py_var=3 
+[38m[Reason]: could not create a descriptor for a dilated convolution forward propagation primitive
+**********
+Async error was detected. To locate the async backtrace and get better error report, please rerun your code with two enviroment variables set:
+>>> export JT_SYNC=1
+>>> export trace_py_var=3
+Traceback (most recent call last):
+  File "models/WGAN.py", line 160, in <module>
+    manager.train()
+  File "models/WGAN.py", line 116, in train
+    self.wandb_run.log({'lossD':loss.data.mean()}, step=i)
+RuntimeError: [38m[f 0106 10:16:53.857531 60 executor.cc:686] 
+[38mExecute fused operator(20/57) failed. 
+[38m[JIT Source]: /home/zhouqianrui/.cache/jittor/jt1.3.8/g++8.5.0/py3.7.16/Linux-5.15.0-7xb0/IntelRXeonRPlax67/default/cu11.2.152_sm_70/jit/__opkey0_broadcast_to__Tx_float32__DIM_7__BCAST_19__opkey1_reindex__Tx_uint8__XDIM_4__YDIM___hash_e2118225335040_op.cc 
+[38m[OP TYPE]: fused_op:( broadcast_to, reindex, binary.multiply, reduce.add,)
+[38m[Input]: float32[16,3,4,4,], uint8[64,3,32,32,], 
+[38m[Output]: float32[64,16,16,16,], 
+[38m[Async Backtrace]: not found, please set env JT_SYNC=1, trace_py_var=3 
+[38m[Reason]: could not create a descriptor for a dilated convolution forward propagation primitive
+**********
+Async error was detected. To locate the async backtrace and get better error report, please rerun your code with two enviroment variables set:
+>>> export JT_SYNC=1
+>>> export trace_py_var=3

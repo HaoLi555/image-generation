@@ -1,0 +1,495 @@
+2024-01-06 14:30:34,195 INFO    StreamThr :1947574 [internal.py:wandb_internal():89] W&B internal server running at pid: 1947574, started at: 2024-01-06 14:30:34.194764
+2024-01-06 14:30:34,199 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status
+2024-01-06 14:30:34,200 INFO    WriterThread:1947574 [datastore.py:open_for_write():85] open: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/run-zslwuzlc.wandb
+2024-01-06 14:30:34,201 DEBUG   SenderThread:1947574 [sender.py:send():382] send: header
+2024-01-06 14:30:34,233 DEBUG   SenderThread:1947574 [sender.py:send():382] send: run
+2024-01-06 14:30:34,845 INFO    SenderThread:1947574 [dir_watcher.py:__init__():211] watching files in: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files
+2024-01-06 14:30:34,845 INFO    SenderThread:1947574 [sender.py:_start_run_threads():1139] run started: zslwuzlc with start time 1704551434.194187
+2024-01-06 14:30:34,870 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: check_version
+2024-01-06 14:30:34,871 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: check_version
+2024-01-06 14:30:35,076 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: run_start
+2024-01-06 14:30:35,088 DEBUG   HandlerThread:1947574 [system_info.py:__init__():32] System info init
+2024-01-06 14:30:35,088 DEBUG   HandlerThread:1947574 [system_info.py:__init__():47] System info init done
+2024-01-06 14:30:35,088 INFO    HandlerThread:1947574 [system_monitor.py:start():194] Starting system monitor
+2024-01-06 14:30:35,088 INFO    SystemMonitor:1947574 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-01-06 14:30:35,089 INFO    HandlerThread:1947574 [system_monitor.py:probe():214] Collecting system info
+2024-01-06 14:30:35,092 INFO    SystemMonitor:1947574 [interfaces.py:start():190] Started cpu monitoring
+2024-01-06 14:30:35,092 INFO    SystemMonitor:1947574 [interfaces.py:start():190] Started disk monitoring
+2024-01-06 14:30:35,093 INFO    SystemMonitor:1947574 [interfaces.py:start():190] Started gpu monitoring
+2024-01-06 14:30:35,094 INFO    SystemMonitor:1947574 [interfaces.py:start():190] Started memory monitoring
+2024-01-06 14:30:35,096 INFO    SystemMonitor:1947574 [interfaces.py:start():190] Started network monitoring
+2024-01-06 14:30:35,165 DEBUG   HandlerThread:1947574 [system_info.py:probe():196] Probing system
+2024-01-06 14:30:35,174 DEBUG   HandlerThread:1947574 [system_info.py:_probe_git():181] Probing git
+2024-01-06 14:30:35,189 DEBUG   HandlerThread:1947574 [system_info.py:_probe_git():189] Probing git done
+2024-01-06 14:30:35,189 DEBUG   HandlerThread:1947574 [system_info.py:probe():244] Probing system done
+2024-01-06 14:30:35,189 DEBUG   HandlerThread:1947574 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-76-generic-x86_64-with-debian-bookworm-sid', 'python': '3.7.16', 'heartbeatAt': '2024-01-06T14:30:35.165891', 'startedAt': '2024-01-06T14:30:34.178207', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': 'models/WGAN.py', 'codePathLocal': 'models/WGAN.py', 'codePath': 'models/WGAN.py', 'git': {'remote': 'git@github.com:HaoLi555/image-generation.git', 'commit': '92cdf911adf4f05e4de3f7124e265f80f6693004'}, 'email': 'lh@server7', 'root': '/home/zhouqianrui/lihao/mc/image-generation', 'host': 'iar-server-7', 'username': 'zhouqianrui', 'executable': '/home/zhouqianrui/anaconda3/envs/mc/bin/python3', 'cpu_count': 64, 'cpu_count_logical': 128, 'cpu_freq': {'current': 1137.4999609375, 'min': 800.0, 'max': 3500.0}, 'cpu_freq_per_core': [{'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 2400.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 1900.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3100.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 2200.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 2200.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 1600.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 2200.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 1500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 2200.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 2200.0, 'min': 800.0, 'max': 3500.0}, {'current': 2200.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 1700.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 3500.0, 'min': 800.0, 'max': 3500.0}, {'current': 1200.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}, {'current': 800.0, 'min': 800.0, 'max': 3500.0}], 'disk': {'/': {'total': 914.7823104858398, 'used': 789.7542991638184}}, 'gpu': 'Tesla V100-SXM2-32GB', 'gpu_count': 4, 'gpu_devices': [{'name': 'Tesla V100-SXM2-32GB', 'memory_total': 34359738368}, {'name': 'Tesla V100-SXM2-32GB', 'memory_total': 34359738368}, {'name': 'Tesla V100-SXM2-32GB', 'memory_total': 34359738368}, {'name': 'Tesla V100-SXM2-32GB', 'memory_total': 34359738368}], 'memory': {'total': 125.47660064697266}}
+2024-01-06 14:30:35,190 INFO    HandlerThread:1947574 [system_monitor.py:probe():224] Finished collecting system info
+2024-01-06 14:30:35,190 INFO    HandlerThread:1947574 [system_monitor.py:probe():227] Publishing system info
+2024-01-06 14:30:35,190 DEBUG   HandlerThread:1947574 [system_info.py:_save_pip():53] Saving list of pip packages installed into the current environment
+2024-01-06 14:30:35,190 DEBUG   HandlerThread:1947574 [system_info.py:_save_pip():68] Saving pip packages done
+2024-01-06 14:30:35,190 DEBUG   HandlerThread:1947574 [system_info.py:_save_conda():76] Saving list of conda packages installed into the current environment
+2024-01-06 14:30:35,848 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/requirements.txt
+2024-01-06 14:30:35,848 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/conda-environment.yaml
+2024-01-06 14:30:36,769 DEBUG   HandlerThread:1947574 [system_info.py:_save_conda():87] Saving conda packages done
+2024-01-06 14:30:36,771 INFO    HandlerThread:1947574 [system_monitor.py:probe():229] Finished publishing system info
+2024-01-06 14:30:36,776 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:36,776 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file wandb-metadata.json with policy now
+2024-01-06 14:30:36,789 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: stop_status
+2024-01-06 14:30:36,790 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: stop_status
+2024-01-06 14:30:36,795 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: internal_messages
+2024-01-06 14:30:36,846 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/conda-environment.yaml
+2024-01-06 14:30:36,847 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/wandb-metadata.json
+2024-01-06 14:30:37,222 DEBUG   SenderThread:1947574 [sender.py:send():382] send: telemetry
+2024-01-06 14:30:37,712 INFO    wandb-upload_0:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/ykh7oii2-wandb-metadata.json
+2024-01-06 14:30:37,847 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:38,989 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:39,195 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:39,219 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:39,221 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:30:39,243 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:39,268 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:39,320 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:39,848 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:40,849 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:41,850 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:42,266 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:42,266 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_0_f42186ced9717b1d735d.png with policy now
+2024-01-06 14:30:42,273 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:42,274 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_0_12cabad273981aa984fc.png with policy now
+2024-01-06 14:30:42,283 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:42,283 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_0_4501b56f5f82baa733b3.png with policy now
+2024-01-06 14:30:42,290 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:42,290 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_0_bcd52317a9413bc48257.png with policy now
+2024-01-06 14:30:42,297 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:42,297 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_0_0db3eceb1a8d9008a959.png with policy now
+2024-01-06 14:30:42,307 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:42,825 INFO    wandb-upload_1:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/w2p37nks-media/images/img_0_f42186ced9717b1d735d.png
+2024-01-06 14:30:42,851 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:42,851 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_0_12cabad273981aa984fc.png
+2024-01-06 14:30:42,852 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_0_0db3eceb1a8d9008a959.png
+2024-01-06 14:30:42,852 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_0_4501b56f5f82baa733b3.png
+2024-01-06 14:30:42,853 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_0_f42186ced9717b1d735d.png
+2024-01-06 14:30:42,853 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_0_bcd52317a9413bc48257.png
+2024-01-06 14:30:42,854 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images
+2024-01-06 14:30:42,854 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media
+2024-01-06 14:30:42,963 INFO    wandb-upload_0:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/ihu2703y-media/images/img_0_12cabad273981aa984fc.png
+2024-01-06 14:30:43,068 INFO    wandb-upload_3:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/yto498j9-media/images/img_0_bcd52317a9413bc48257.png
+2024-01-06 14:30:43,082 INFO    wandb-upload_2:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/jvz65wot-media/images/img_0_4501b56f5f82baa733b3.png
+2024-01-06 14:30:43,091 INFO    wandb-upload_4:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/e785zlqg-media/images/img_0_0db3eceb1a8d9008a959.png
+2024-01-06 14:30:43,530 INFO    wandb-upload_5:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/zx8cfxim-media/images/img_0_f42186ced9717b1d735d.png
+2024-01-06 14:30:43,620 INFO    wandb-upload_1:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/2aqdg3xl-media/images/img_0_12cabad273981aa984fc.png
+2024-01-06 14:30:43,730 INFO    wandb-upload_0:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/766bc7n8-media/images/img_0_4501b56f5f82baa733b3.png
+2024-01-06 14:30:43,759 INFO    wandb-upload_6:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/2l9knxfq-media/images/img_0_bcd52317a9413bc48257.png
+2024-01-06 14:30:43,852 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:44,190 INFO    wandb-upload_2:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/w3zd7cuj-media/images/img_0_0db3eceb1a8d9008a959.png
+2024-01-06 14:30:44,230 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:30:44,852 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:46,854 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:48,856 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:49,235 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:30:50,859 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:51,811 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: internal_messages
+2024-01-06 14:30:51,811 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: stop_status
+2024-01-06 14:30:51,812 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: stop_status
+2024-01-06 14:30:52,861 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:54,339 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:30:54,862 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:55,435 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:55,438 DEBUG   SenderThread:1947574 [sender.py:send():382] send: history
+2024-01-06 14:30:55,439 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: summary_record
+2024-01-06 14:30:55,440 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2024-01-06 14:30:55,455 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:55,476 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:55,497 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:55,518 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:55,533 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:55,543 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:55,543 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_100_18911c23ec357a5be3ff.png with policy now
+2024-01-06 14:30:55,545 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:55,545 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_100_6b07f84ac3fe9380d6ab.png with policy now
+2024-01-06 14:30:55,551 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:55,551 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_100_80a7d3dfffe23a36b89a.png with policy now
+2024-01-06 14:30:55,551 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:55,552 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_100_ce03db60a2afa2352a63.png with policy now
+2024-01-06 14:30:55,553 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:30:55,553 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_100_d56fee8e914459c5dd24.png with policy now
+2024-01-06 14:30:55,557 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:30:55,863 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/wandb-summary.json
+2024-01-06 14:30:55,864 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_100_ce03db60a2afa2352a63.png
+2024-01-06 14:30:55,865 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_100_80a7d3dfffe23a36b89a.png
+2024-01-06 14:30:55,865 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_100_d56fee8e914459c5dd24.png
+2024-01-06 14:30:55,866 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_100_18911c23ec357a5be3ff.png
+2024-01-06 14:30:55,866 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_100_6b07f84ac3fe9380d6ab.png
+2024-01-06 14:30:55,867 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images
+2024-01-06 14:30:56,094 INFO    wandb-upload_8:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/kocrt04o-media/images/img_100_18911c23ec357a5be3ff.png
+2024-01-06 14:30:56,124 INFO    wandb-upload_9:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/mypigquv-media/images/img_100_6b07f84ac3fe9380d6ab.png
+2024-01-06 14:30:56,143 INFO    wandb-upload_5:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/ac8cdl5f-media/images/img_100_80a7d3dfffe23a36b89a.png
+2024-01-06 14:30:56,146 INFO    wandb-upload_0:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/1yqp6kz6-media/images/img_100_d56fee8e914459c5dd24.png
+2024-01-06 14:30:56,147 INFO    wandb-upload_10:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/lcvpcngf-media/images/img_100_ce03db60a2afa2352a63.png
+2024-01-06 14:30:56,814 INFO    wandb-upload_4:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/k7jyumyp-media/images/img_100_6b07f84ac3fe9380d6ab.png
+2024-01-06 14:30:56,822 INFO    wandb-upload_2:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/4ke10on2-media/images/img_100_18911c23ec357a5be3ff.png
+2024-01-06 14:30:56,865 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:57,497 INFO    wandb-upload_3:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/l9fa6myl-media/images/img_100_ce03db60a2afa2352a63.png
+2024-01-06 14:30:57,516 INFO    wandb-upload_7:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/5irbr82u-media/images/img_100_80a7d3dfffe23a36b89a.png
+2024-01-06 14:30:57,866 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:58,184 INFO    wandb-upload_1:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/29bbp4sz-media/images/img_100_d56fee8e914459c5dd24.png
+2024-01-06 14:30:58,867 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:30:59,420 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:00,868 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:02,871 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:04,523 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:04,872 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/config.yaml
+2024-01-06 14:31:04,873 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:06,823 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: internal_messages
+2024-01-06 14:31:06,824 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: stop_status
+2024-01-06 14:31:06,825 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: stop_status
+2024-01-06 14:31:06,875 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:07,597 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:07,600 DEBUG   SenderThread:1947574 [sender.py:send():382] send: history
+2024-01-06 14:31:07,600 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: summary_record
+2024-01-06 14:31:07,601 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2024-01-06 14:31:07,617 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:07,638 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:07,658 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:07,678 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:07,694 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:07,703 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:07,703 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_200_cd578f80f4abad79b162.png with policy now
+2024-01-06 14:31:07,705 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:07,705 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_200_7e3cb32aae27725dc9e9.png with policy now
+2024-01-06 14:31:07,711 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:07,711 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_200_dd39148ad3876c2e239f.png with policy now
+2024-01-06 14:31:07,712 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:07,712 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_200_5b660232309a1ed9eed2.png with policy now
+2024-01-06 14:31:07,765 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:07,765 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_200_0d35e65bd32b51c4b90a.png with policy now
+2024-01-06 14:31:07,772 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:07,876 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/wandb-summary.json
+2024-01-06 14:31:07,877 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_200_7e3cb32aae27725dc9e9.png
+2024-01-06 14:31:07,877 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_200_0d35e65bd32b51c4b90a.png
+2024-01-06 14:31:07,878 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_200_cd578f80f4abad79b162.png
+2024-01-06 14:31:07,878 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_200_dd39148ad3876c2e239f.png
+2024-01-06 14:31:07,879 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_200_5b660232309a1ed9eed2.png
+2024-01-06 14:31:07,879 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images
+2024-01-06 14:31:08,274 INFO    wandb-upload_9:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/jrcgmq2m-media/images/img_200_7e3cb32aae27725dc9e9.png
+2024-01-06 14:31:08,316 INFO    wandb-upload_16:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/81sexi7n-media/images/img_200_5b660232309a1ed9eed2.png
+2024-01-06 14:31:08,332 INFO    wandb-upload_12:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/wdnmw33d-media/images/img_200_0d35e65bd32b51c4b90a.png
+2024-01-06 14:31:08,865 INFO    wandb-upload_15:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/zc5g894r-media/images/img_200_cd578f80f4abad79b162.png
+2024-01-06 14:31:08,877 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:08,901 INFO    wandb-upload_0:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/hxomk8ea-media/images/img_200_dd39148ad3876c2e239f.png
+2024-01-06 14:31:08,940 INFO    wandb-upload_4:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/u5mz90xo-media/images/img_200_7e3cb32aae27725dc9e9.png
+2024-01-06 14:31:09,600 INFO    wandb-upload_13:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/km7hhvbp-media/images/img_200_5b660232309a1ed9eed2.png
+2024-01-06 14:31:09,625 INFO    wandb-upload_14:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/pnxhmry9-media/images/img_200_0d35e65bd32b51c4b90a.png
+2024-01-06 14:31:09,878 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:09,907 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:10,278 INFO    wandb-upload_3:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/q4cmfmlm-media/images/img_200_cd578f80f4abad79b162.png
+2024-01-06 14:31:10,357 INFO    wandb-upload_30:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/spk2l79b-media/images/img_200_dd39148ad3876c2e239f.png
+2024-01-06 14:31:10,879 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:12,881 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:14,884 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:14,935 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:16,886 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:18,888 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:19,353 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:19,355 DEBUG   SenderThread:1947574 [sender.py:send():382] send: history
+2024-01-06 14:31:19,356 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: summary_record
+2024-01-06 14:31:19,357 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2024-01-06 14:31:19,375 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:19,397 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:19,419 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:19,441 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:19,458 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:19,467 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:19,468 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_300_aca2aeac770e98258aba.png with policy now
+2024-01-06 14:31:19,469 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:19,470 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_300_5df478aa8600e6640b3e.png with policy now
+2024-01-06 14:31:19,479 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:19,479 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_300_2d225be32f41d89ed8bc.png with policy now
+2024-01-06 14:31:19,480 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:19,480 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:19,480 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_300_5d773c0f1aae1f18b32d.png with policy now
+2024-01-06 14:31:19,484 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:19,485 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_300_817523de8ad52eb65c2b.png with policy now
+2024-01-06 14:31:19,889 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/wandb-summary.json
+2024-01-06 14:31:19,890 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_300_aca2aeac770e98258aba.png
+2024-01-06 14:31:19,891 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_300_5df478aa8600e6640b3e.png
+2024-01-06 14:31:19,891 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_300_817523de8ad52eb65c2b.png
+2024-01-06 14:31:19,892 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_300_2d225be32f41d89ed8bc.png
+2024-01-06 14:31:19,892 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_300_5d773c0f1aae1f18b32d.png
+2024-01-06 14:31:19,893 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images
+2024-01-06 14:31:19,971 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:20,069 INFO    wandb-upload_7:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/a4pproja-media/images/img_300_aca2aeac770e98258aba.png
+2024-01-06 14:31:20,075 INFO    wandb-upload_21:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/neqh4msy-media/images/img_300_5df478aa8600e6640b3e.png
+2024-01-06 14:31:20,077 INFO    wandb-upload_22:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/gc17g2iy-media/images/img_300_2d225be32f41d89ed8bc.png
+2024-01-06 14:31:20,099 INFO    wandb-upload_10:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/ww8m0ir8-media/images/img_300_5d773c0f1aae1f18b32d.png
+2024-01-06 14:31:20,119 INFO    wandb-upload_24:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/9g2j47ze-media/images/img_300_817523de8ad52eb65c2b.png
+2024-01-06 14:31:20,750 INFO    wandb-upload_17:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/eew7db2h-media/images/img_300_aca2aeac770e98258aba.png
+2024-01-06 14:31:20,800 INFO    wandb-upload_18:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/on3o7mm4-media/images/img_300_2d225be32f41d89ed8bc.png
+2024-01-06 14:31:20,825 INFO    wandb-upload_12:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/8ecyuipo-media/images/img_300_5d773c0f1aae1f18b32d.png
+2024-01-06 14:31:20,891 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:20,898 INFO    wandb-upload_9:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/5998fm89-media/images/img_300_5df478aa8600e6640b3e.png
+2024-01-06 14:31:21,468 INFO    wandb-upload_0:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/iu50dw51-media/images/img_300_817523de8ad52eb65c2b.png
+2024-01-06 14:31:21,832 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: internal_messages
+2024-01-06 14:31:21,832 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: stop_status
+2024-01-06 14:31:21,833 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: stop_status
+2024-01-06 14:31:21,892 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:22,893 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:24,896 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:24,978 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:26,898 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:28,901 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:30,070 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:30,903 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:31,442 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:31,444 DEBUG   SenderThread:1947574 [sender.py:send():382] send: history
+2024-01-06 14:31:31,445 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: summary_record
+2024-01-06 14:31:31,446 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2024-01-06 14:31:31,462 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:31,482 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:31,502 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:31,522 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:31,538 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:31,547 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:31,547 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_400_8ec4c3ddfa0fc7add47e.png with policy now
+2024-01-06 14:31:31,549 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:31,549 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_400_d6cec152e7498797ec24.png with policy now
+2024-01-06 14:31:31,555 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:31,556 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_400_20e18f165d23fbb058fc.png with policy now
+2024-01-06 14:31:31,556 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:31,557 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_400_c03a80532d7ad72260b9.png with policy now
+2024-01-06 14:31:31,557 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:31,557 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_400_344061dcc7b663523dd1.png with policy now
+2024-01-06 14:31:31,563 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:31,905 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/wandb-summary.json
+2024-01-06 14:31:31,905 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_400_20e18f165d23fbb058fc.png
+2024-01-06 14:31:31,906 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_400_d6cec152e7498797ec24.png
+2024-01-06 14:31:31,906 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_400_c03a80532d7ad72260b9.png
+2024-01-06 14:31:31,907 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_400_344061dcc7b663523dd1.png
+2024-01-06 14:31:31,907 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_400_8ec4c3ddfa0fc7add47e.png
+2024-01-06 14:31:31,908 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images
+2024-01-06 14:31:32,159 INFO    wandb-upload_27:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/3gjiwedu-media/images/img_400_8ec4c3ddfa0fc7add47e.png
+2024-01-06 14:31:32,164 INFO    wandb-upload_29:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/se2aejji-media/images/img_400_c03a80532d7ad72260b9.png
+2024-01-06 14:31:32,180 INFO    wandb-upload_28:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/9zzhhgsc-media/images/img_400_d6cec152e7498797ec24.png
+2024-01-06 14:31:32,198 INFO    wandb-upload_13:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/yciknwne-media/images/img_400_20e18f165d23fbb058fc.png
+2024-01-06 14:31:32,199 INFO    wandb-upload_20:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/ltqy17le-media/images/img_400_344061dcc7b663523dd1.png
+2024-01-06 14:31:32,871 INFO    wandb-upload_30:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/nkabr56x-media/images/img_400_c03a80532d7ad72260b9.png
+2024-01-06 14:31:32,877 INFO    wandb-upload_31:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/aeonl507-media/images/img_400_8ec4c3ddfa0fc7add47e.png
+2024-01-06 14:31:32,906 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:33,655 INFO    wandb-upload_5:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/01c0fgd8-media/images/img_400_d6cec152e7498797ec24.png
+2024-01-06 14:31:33,666 INFO    wandb-upload_32:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/0ykkap6u-media/images/img_400_20e18f165d23fbb058fc.png
+2024-01-06 14:31:33,907 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:34,334 INFO    wandb-upload_34:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/1b8qk4tp-media/images/img_400_344061dcc7b663523dd1.png
+2024-01-06 14:31:34,909 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:35,097 DEBUG   SystemMonitor:1947574 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-01-06 14:31:35,100 DEBUG   SenderThread:1947574 [sender.py:send():382] send: stats
+2024-01-06 14:31:35,104 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:36,826 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: internal_messages
+2024-01-06 14:31:36,860 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: stop_status
+2024-01-06 14:31:36,861 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: stop_status
+2024-01-06 14:31:36,912 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:38,914 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:40,124 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:40,917 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:42,724 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:42,726 DEBUG   SenderThread:1947574 [sender.py:send():382] send: history
+2024-01-06 14:31:42,727 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: summary_record
+2024-01-06 14:31:42,728 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2024-01-06 14:31:42,744 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:42,764 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:42,784 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:42,805 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:42,820 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:42,830 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:42,830 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_500_d46269550e7722ab2be5.png with policy now
+2024-01-06 14:31:42,832 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:42,832 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_500_8f471163bea1d0df5dc0.png with policy now
+2024-01-06 14:31:42,840 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:42,840 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_500_aa2071e4483b9f7d8c77.png with policy now
+2024-01-06 14:31:42,841 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:42,841 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_500_07b8d1db668852faf02c.png with policy now
+2024-01-06 14:31:42,842 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:42,843 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:42,843 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_500_4c8949f0ce79b919a36e.png with policy now
+2024-01-06 14:31:42,920 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/wandb-summary.json
+2024-01-06 14:31:42,920 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:42,921 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_500_d46269550e7722ab2be5.png
+2024-01-06 14:31:42,921 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_500_4c8949f0ce79b919a36e.png
+2024-01-06 14:31:42,922 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_500_07b8d1db668852faf02c.png
+2024-01-06 14:31:42,922 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_500_aa2071e4483b9f7d8c77.png
+2024-01-06 14:31:42,923 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_500_8f471163bea1d0df5dc0.png
+2024-01-06 14:31:42,923 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images
+2024-01-06 14:31:43,448 INFO    wandb-upload_25:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/qj3vytgp-media/images/img_500_8f471163bea1d0df5dc0.png
+2024-01-06 14:31:43,465 INFO    wandb-upload_10:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/ccnuokns-media/images/img_500_4c8949f0ce79b919a36e.png
+2024-01-06 14:31:43,470 INFO    wandb-upload_35:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/jnm2xxxl-media/images/img_500_d46269550e7722ab2be5.png
+2024-01-06 14:31:43,472 INFO    wandb-upload_22:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/y427cdly-media/images/img_500_07b8d1db668852faf02c.png
+2024-01-06 14:31:43,497 INFO    wandb-upload_21:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/qh4775cs-media/images/img_500_aa2071e4483b9f7d8c77.png
+2024-01-06 14:31:43,921 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:44,167 INFO    wandb-upload_39:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/iyrmxov8-media/images/img_500_8f471163bea1d0df5dc0.png
+2024-01-06 14:31:44,167 INFO    wandb-upload_38:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/30ul44ns-media/images/img_500_4c8949f0ce79b919a36e.png
+2024-01-06 14:31:44,845 INFO    wandb-upload_2:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/5xkf0orh-media/images/img_500_07b8d1db668852faf02c.png
+2024-01-06 14:31:44,854 INFO    wandb-upload_17:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/86se0237-media/images/img_500_d46269550e7722ab2be5.png
+2024-01-06 14:31:44,922 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:45,178 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:45,555 INFO    wandb-upload_12:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/nlizfcjx-media/images/img_500_aa2071e4483b9f7d8c77.png
+2024-01-06 14:31:45,924 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:46,926 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:48,929 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:50,299 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:50,932 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:51,826 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: internal_messages
+2024-01-06 14:31:51,850 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: stop_status
+2024-01-06 14:31:51,851 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: stop_status
+2024-01-06 14:31:52,935 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:54,824 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:54,829 DEBUG   SenderThread:1947574 [sender.py:send():382] send: history
+2024-01-06 14:31:54,830 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: summary_record
+2024-01-06 14:31:54,831 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2024-01-06 14:31:54,845 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:54,867 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:54,889 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:54,912 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:54,930 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:54,937 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/wandb-summary.json
+2024-01-06 14:31:54,938 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:54,939 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:54,940 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_600_aa31853279f5c2ca2cbe.png with policy now
+2024-01-06 14:31:54,941 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:54,941 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_600_c5b80e2b1fc931e2bddd.png with policy now
+2024-01-06 14:31:54,949 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:54,950 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_600_a688318d8b3013ff24d7.png with policy now
+2024-01-06 14:31:54,951 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:54,951 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_600_3ec1bb8f123dc0595524.png with policy now
+2024-01-06 14:31:54,952 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:31:54,952 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:31:54,952 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_600_e6ce5837042c61943bbe.png with policy now
+2024-01-06 14:31:55,319 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:31:55,550 INFO    wandb-upload_41:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/j33voe27-media/images/img_600_c5b80e2b1fc931e2bddd.png
+2024-01-06 14:31:55,558 INFO    wandb-upload_44:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/y5arhy5j-media/images/img_600_e6ce5837042c61943bbe.png
+2024-01-06 14:31:55,567 INFO    wandb-upload_43:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/ky2nzka2-media/images/img_600_3ec1bb8f123dc0595524.png
+2024-01-06 14:31:55,583 INFO    wandb-upload_42:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/ooi9ylpz-media/images/img_600_a688318d8b3013ff24d7.png
+2024-01-06 14:31:55,605 INFO    wandb-upload_0:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/i3zpssaw-media/images/img_600_aa31853279f5c2ca2cbe.png
+2024-01-06 14:31:55,939 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:55,939 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_600_c5b80e2b1fc931e2bddd.png
+2024-01-06 14:31:55,940 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_600_3ec1bb8f123dc0595524.png
+2024-01-06 14:31:55,940 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_600_aa31853279f5c2ca2cbe.png
+2024-01-06 14:31:55,941 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_600_a688318d8b3013ff24d7.png
+2024-01-06 14:31:55,946 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_600_e6ce5837042c61943bbe.png
+2024-01-06 14:31:55,946 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images
+2024-01-06 14:31:56,634 INFO    wandb-upload_45:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/rza5agr4-media/images/img_600_c5b80e2b1fc931e2bddd.png
+2024-01-06 14:31:56,635 INFO    wandb-upload_8:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/0bhxuuss-media/images/img_600_e6ce5837042c61943bbe.png
+2024-01-06 14:31:56,653 INFO    wandb-upload_1:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/lvpswd3b-media/images/img_600_aa31853279f5c2ca2cbe.png
+2024-01-06 14:31:56,653 INFO    wandb-upload_29:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/x6sywtmo-media/images/img_600_3ec1bb8f123dc0595524.png
+2024-01-06 14:31:56,672 INFO    wandb-upload_13:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/bqjidoxk-media/images/img_600_a688318d8b3013ff24d7.png
+2024-01-06 14:31:56,940 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:57,942 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:31:58,944 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:00,364 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:32:00,947 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:02,950 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:04,953 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:05,103 DEBUG   SenderThread:1947574 [sender.py:send():382] send: stats
+2024-01-06 14:32:05,420 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:32:06,449 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:06,451 DEBUG   SenderThread:1947574 [sender.py:send():382] send: history
+2024-01-06 14:32:06,452 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: summary_record
+2024-01-06 14:32:06,453 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2024-01-06 14:32:06,469 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:06,489 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:06,509 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:06,529 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:06,545 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:06,554 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:32:06,555 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_700_e0ee9f9daa7a9bce85fa.png with policy now
+2024-01-06 14:32:06,556 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:32:06,557 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_700_5b805697a500131b5fac.png with policy now
+2024-01-06 14:32:06,565 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:32:06,566 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_700_9549b40b8a99325bc58b.png with policy now
+2024-01-06 14:32:06,570 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:32:06,570 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_700_d823b3a5532b921d0f56.png with policy now
+2024-01-06 14:32:06,570 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:06,571 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:32:06,572 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_700_fd1991a7d1451b8e0517.png with policy now
+2024-01-06 14:32:06,838 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: internal_messages
+2024-01-06 14:32:06,874 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: stop_status
+2024-01-06 14:32:06,874 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: stop_status
+2024-01-06 14:32:06,956 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/wandb-summary.json
+2024-01-06 14:32:06,956 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:06,957 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_700_fd1991a7d1451b8e0517.png
+2024-01-06 14:32:06,957 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_700_9549b40b8a99325bc58b.png
+2024-01-06 14:32:06,958 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_700_d823b3a5532b921d0f56.png
+2024-01-06 14:32:06,958 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_700_5b805697a500131b5fac.png
+2024-01-06 14:32:06,959 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_700_e0ee9f9daa7a9bce85fa.png
+2024-01-06 14:32:06,959 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images
+2024-01-06 14:32:07,142 INFO    wandb-upload_30:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/dksyz6ra-media/images/img_700_e0ee9f9daa7a9bce85fa.png
+2024-01-06 14:32:07,162 INFO    wandb-upload_48:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/zjp6s4hw-media/images/img_700_5b805697a500131b5fac.png
+2024-01-06 14:32:07,181 INFO    wandb-upload_23:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/828vq8eo-media/images/img_700_9549b40b8a99325bc58b.png
+2024-01-06 14:32:07,187 INFO    wandb-upload_5:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/h6imkfq2-media/images/img_700_d823b3a5532b921d0f56.png
+2024-01-06 14:32:07,214 INFO    wandb-upload_50:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/rd8bsy5l-media/images/img_700_fd1991a7d1451b8e0517.png
+2024-01-06 14:32:07,859 INFO    wandb-upload_34:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/9mwybep8-media/images/img_700_5b805697a500131b5fac.png
+2024-01-06 14:32:07,924 INFO    wandb-upload_7:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/ug1rgukb-media/images/img_700_e0ee9f9daa7a9bce85fa.png
+2024-01-06 14:32:07,958 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:08,571 INFO    wandb-upload_36:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/l6x8cchs-media/images/img_700_fd1991a7d1451b8e0517.png
+2024-01-06 14:32:08,611 INFO    wandb-upload_26:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/wdnuw20m-media/images/img_700_9549b40b8a99325bc58b.png
+2024-01-06 14:32:08,960 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:09,285 INFO    wandb-upload_37:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/zk98tlxh-media/images/img_700_d823b3a5532b921d0f56.png
+2024-01-06 14:32:10,518 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:32:10,963 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:12,966 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:14,969 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:15,589 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:32:16,973 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:18,045 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:18,048 DEBUG   SenderThread:1947574 [sender.py:send():382] send: history
+2024-01-06 14:32:18,049 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: summary_record
+2024-01-06 14:32:18,050 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file wandb-summary.json with policy end
+2024-01-06 14:32:18,067 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:18,089 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:18,111 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:18,133 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:18,150 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:18,162 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:32:18,162 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_800_68737ce9483d81668fa6.png with policy now
+2024-01-06 14:32:18,163 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:32:18,164 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_800_2190634b2a54de2fdc2f.png with policy now
+2024-01-06 14:32:18,169 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:32:18,170 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_800_33245fac013d392be65c.png with policy now
+2024-01-06 14:32:18,171 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:32:18,172 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_800_d7dc88e649594aa545b5.png with policy now
+2024-01-06 14:32:18,178 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: partial_history
+2024-01-06 14:32:18,179 DEBUG   SenderThread:1947574 [sender.py:send():382] send: files
+2024-01-06 14:32:18,181 INFO    SenderThread:1947574 [sender.py:_save_file():1392] saving file media/images/img_800_181fd97007dc42736bf1.png with policy now
+2024-01-06 14:32:18,764 INFO    wandb-upload_22:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/8ibnbi6h-media/images/img_800_d7dc88e649594aa545b5.png
+2024-01-06 14:32:18,764 INFO    wandb-upload_55:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/uqj48xnu-media/images/img_800_68737ce9483d81668fa6.png
+2024-01-06 14:32:18,777 INFO    wandb-upload_10:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/082qs9y2-media/images/img_800_2190634b2a54de2fdc2f.png
+2024-01-06 14:32:18,802 INFO    wandb-upload_56:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/js3tphiz-media/images/img_800_33245fac013d392be65c.png
+2024-01-06 14:32:18,802 INFO    wandb-upload_15:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/6vsq5ueo-media/images/img_800_181fd97007dc42736bf1.png
+2024-01-06 14:32:18,976 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/wandb-summary.json
+2024-01-06 14:32:18,977 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:18,977 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_800_d7dc88e649594aa545b5.png
+2024-01-06 14:32:18,978 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_800_2190634b2a54de2fdc2f.png
+2024-01-06 14:32:18,978 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_800_33245fac013d392be65c.png
+2024-01-06 14:32:18,979 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_800_181fd97007dc42736bf1.png
+2024-01-06 14:32:18,979 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_created():271] file/dir created: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images/img_800_68737ce9483d81668fa6.png
+2024-01-06 14:32:18,980 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/media/images
+2024-01-06 14:32:19,667 INFO    wandb-upload_18:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/poiy6d18-media/images/img_800_33245fac013d392be65c.png
+2024-01-06 14:32:19,674 INFO    wandb-upload_39:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/kqk2mwnh-media/images/img_800_d7dc88e649594aa545b5.png
+2024-01-06 14:32:19,675 INFO    wandb-upload_40:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/huxbw779-media/images/img_800_2190634b2a54de2fdc2f.png
+2024-01-06 14:32:19,726 INFO    wandb-upload_2:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/daorloc6-media/images/img_800_181fd97007dc42736bf1.png
+2024-01-06 14:32:19,786 INFO    wandb-upload_60:1947574 [upload_job.py:push():131] Uploaded file /tmp/tmpgpga4unowandb/1lvvyyq9-media/images/img_800_68737ce9483d81668fa6.png
+2024-01-06 14:32:19,978 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:20,664 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:32:20,980 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:21,833 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: internal_messages
+2024-01-06 14:32:21,877 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: stop_status
+2024-01-06 14:32:21,878 DEBUG   SenderThread:1947574 [sender.py:send_request():409] send_request: stop_status
+2024-01-06 14:32:22,983 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:24,987 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:25,767 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
+2024-01-06 14:32:26,990 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:28,995 INFO    Thread-12 :1947574 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/zhouqianrui/lihao/mc/image-generation/wandb/run-20240106_143034-zslwuzlc/files/output.log
+2024-01-06 14:32:29,182 INFO    memory    :1947574 [interfaces.py:monitor():140] Process proc.memory.rssMB has exited.
+2024-01-06 14:32:29,183 DEBUG   SystemMonitor:1947574 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-01-06 14:32:29,184 DEBUG   SystemMonitor:1947574 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-01-06 14:32:29,206 DEBUG   SenderThread:1947574 [sender.py:send():382] send: stats
+2024-01-06 14:32:31,119 INFO    MainThread:1947574 [internal.py:handle_exit():76] Internal process exited
+2024-01-06 14:32:31,210 DEBUG   HandlerThread:1947574 [handler.py:handle_request():146] handle_request: status_report
