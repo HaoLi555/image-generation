@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "models/WGAN.py", line 149, in <module>
-    train_loader=CIFAR10(train=True, shuffle=True, batch_size=64)
-TypeError: __init__() got an unexpected keyword argument 'shuffle'
-Traceback (most recent call last):
-  File "models/WGAN.py", line 149, in <module>
-    train_loader=CIFAR10(train=True, shuffle=True, batch_size=64)
-TypeError: __init__() got an unexpected keyword argument 'shuffle'
