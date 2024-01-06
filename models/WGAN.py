@@ -5,6 +5,7 @@ import numpy as np
 from tqdm import tqdm
 import wandb
 from PIL import Image
+from jittor import init
 
 class Generator(nn.Module):
     def __init__(self, in_channel=16, hidden_dim=16):
@@ -59,11 +60,14 @@ class Discriminator(nn.Module):
         x=self.encoder(x)
         return x
     
-# def init_weights(m):
-#     if type(m)==nn.Conv2d:
-
-
-
+def init_weights(m):
+    if type(m)==nn.Conv2d:
+        init.trunc_normal_(m.weight, std=0.02)
+    elif type(m)==nn.ConvTranspose2d:
+        init.trunc_normal_(m.weight, std=0.02)
+    elif type(m)==nn.BatchNorm2d:
+        init.normal_(m.weight, 1.0, 0.02)
+        init.constant_(m.bias, 0)
 
 
 def circle(iterable):
@@ -84,6 +88,9 @@ class WGAN_Manager():
         self.optimizerD=nn.RMSprop(self.netD.parameters(), lr=0.00005)
 
         self.wandb_run=wandb_run
+
+        self.netD.apply(init_weights)
+        self.netG.apply(init_weights)
 
     def train(self):    
 
