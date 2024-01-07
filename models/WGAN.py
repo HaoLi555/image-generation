@@ -7,10 +7,49 @@ import wandb
 from PIL import Image
 from jittor import init
 
-class Generator(nn.Module):
-    def __init__(self, in_channel=128, out_channel=128):
-        super(Generator, self).__init__()
+
+class GeneratorBlock(nn.Module):
+    def __init__(self, in_channel, out_channel, upsample=False):
+        super(GeneratorBlock, self).__init__()
         self.in_channel=in_channel
+        self.out_channel=out_channel
+        self.upsample=upsample
+
+        if in_channel!=out_channel:
+            self.shortcut_conv=nn.Conv(in_channel, out_channel, kernel_size=1)
+        else:
+            self.shortcut_conv=None
+
+        self.bn1=nn.BatchNorm(in_channel)
+        self.conv1=nn.Conv(in_channel, in_channel, kernel_size=3, padding=1)
+        self.bn2=nn.BatchNorm(in_channel)
+        self.conv2=nn.Conv(in_channel, out_channel, kernel_size=3, padding=1)
+
+    def execute(self, x):
+        if self.upsample:
+            shortcut=nn.upsample(x, scale_factor=2, mode='nearest')
+        else:
+            shortcut=x
+
+        if self.shortcut_conv is not None:
+            shortcut=self.shortcut_conv(shortcut)
+
+        x=self.bn1(x)
+        x=nn.relu(x)
+        if self.upsample:
+            x=nn.upsample(x, scale_factor=2, mode='nearest')
+        x=self.conv1(x)
+        x=self.bn2(x)
+        x=nn.relu(x)
+        x=self.conv2(x)
+
+        return x+shortcut
+
+
+class Generator(nn.Module):
+    def __init__(self, in_dim=128,in_channel=128, out_channel=3):
+        super(Generator, self).__init__()
+        self.in_dim=self.in_dim
         self.out_channel=out_channel
 
         # self.decoder=nn.Sequential(
@@ -30,13 +69,28 @@ class Generator(nn.Module):
         #     nn.Tanh()
         # )
 
-        self.decoder=nn.Sequential(
-            nn.Conv(in_channels=in_channel, out_channels=out_channel,kernel_size=3,stride=1)
-            
-        )
+        self.linear=nn.Linear(in_dim, 4*4*in_channel)
+
+        self.block1=GeneratorBlock(in_channel, in_channel, upsample=True)
+        self.block2=GeneratorBlock(in_channel, in_channel, upsample=True)
+        self.block3=GeneratorBlock(in_channel, in_channel, upsample=True)
+
+        self.bn=nn.BatchNorm(in_channel)
+        self.conv=nn.Conv(in_channel, out_channel, kernel_size=3, padding=1)
 
     def execute(self, x):
-        x=self.decoder(x)
+        x=self.linear(x)
+        x=x.reshape(-1,128,4,4)
+
+        x=self.block1(x)
+        x=self.block2(x)
+        x=self.block3(x)
+
+        x=self.bn(x)
+        x=nn.relu(x)
+        x=self.conv(x)
+        x=nn.tanh(x)
+
         return x
 
 class Discriminator(nn.Module):
