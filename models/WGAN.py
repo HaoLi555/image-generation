@@ -80,6 +80,13 @@ class Generator(nn.Module):
 
         self.tanh=nn.Tanh()
 
+        relu_gain = nn.init.calculate_gain('relu')
+        for module in self.modules():
+            if isinstance(module, (nn.Conv, nn.Linear)):
+                gain = relu_gain if module != self.linear else 1.0
+                nn.init.xavier_uniform_(module.weight, gain=gain)
+                nn.init.zero_(module.bias)
+
     def execute(self, x):
         x=self.linear(x)
         x=x.reshape(-1,128,4,4)
@@ -97,20 +104,19 @@ class Generator(nn.Module):
         return x
 
 class DiscriminatorBlock(nn.Module):
-    def __init__(self, in_channel, out_channel, downsample=False):
+    def __init__(self, in_channel, out_channel, downsample=False, first=False):
         super(DiscriminatorBlock, self).__init__()
         self.in_channel=in_channel
         self.out_channel=out_channel
         self.downsample=downsample
+        self.first=first
 
         if in_channel!=out_channel:
             self.shortcut_conv=nn.Conv(in_channel, out_channel, kernel_size=1)
         else:
             self.shortcut_conv=None
 
-        self.bn1=nn.BatchNorm(in_channel)
         self.conv1=nn.Conv(in_channel, in_channel, kernel_size=3, padding=1)
-        self.bn2=nn.BatchNorm(in_channel)
         self.conv2=nn.Conv(in_channel, out_channel, kernel_size=3, padding=1)
 
     def execute(self, x):
@@ -122,14 +128,13 @@ class DiscriminatorBlock(nn.Module):
         if self.shortcut_conv is not None:
             shortcut=self.shortcut_conv(shortcut)
 
-        x=self.bn1(x)
-        x=nn.relu(x)
-        if self.downsample:
-            x=nn.pool(x, 2, 'mean')
+        if self.first:
+            x=nn.relu(x)
         x=self.conv1(x)
-        x=self.bn2(x)
         x=nn.relu(x)
         x=self.conv2(x)
+        if self.downsample:
+            x=nn.pool(x, 2, 'mean')
 
         return x+shortcut
 
@@ -155,14 +160,19 @@ class Discriminator(nn.Module):
         #     nn.Conv2d(hidden_dim*4,1,4,1,0),
 
         # )
-        self.block1=DiscriminatorBlock(in_channel, channel, downsample=True)
+        self.block1=DiscriminatorBlock(in_channel, channel, downsample=True, first=True)
         self.block2=DiscriminatorBlock(channel, channel, downsample=True)
         self.block3=DiscriminatorBlock(channel, channel, downsample=False)
         self.block4=DiscriminatorBlock(channel, channel, downsample=False)
 
         self.linear=nn.Linear(channel, 1)
 
-
+        relu_gain = nn.init.calculate_gain('relu')
+        for module in self.modules():
+            if isinstance(module, (nn.Conv, nn.Linear)):
+                gain = relu_gain if module != self.linear else 1.0
+                nn.init.xavier_uniform_(module.weight, gain=gain)
+                nn.init.zero_(module.bias)
 
     def execute(self, x):
         x=self.block1(x)
@@ -181,8 +191,8 @@ class Discriminator(nn.Module):
 def init_weights(m):
     if type(m)==nn.Conv2d:
         init.trunc_normal_(m.weight, std=0.02)
-    elif type(m)==nn.ConvTranspose2d:
-        init.trunc_normal_(m.weight, std=0.02)
+    # elif type(m)==nn.ConvTranspose2d:
+    #     init.trunc_normal_(m.weight, std=0.02)
     elif type(m)==nn.BatchNorm2d:
         init.trunc_normal_(m.weight, 1.0, 0.02)
         init.constant_(m.bias, 0)
@@ -193,8 +203,11 @@ def circle(iterable):
         for x in iterable:
             yield x
 
+
+
+
 class WGAN_Manager():
-    def __init__(self, train_loader, test_loader, wandb_run, num_steps=5000, critic_steps=5) -> None:
+    def __init__(self, train_loader, test_loader, wandb_run, num_steps=10000, critic_steps=5) -> None:
         self.netG=Generator()
         self.netD=Discriminator()
         self.train_loader=train_loader
@@ -202,13 +215,16 @@ class WGAN_Manager():
         self.num_steps=num_steps
         # 生成器每迭代一次，判别器迭代的次数
         self.critic_steps=critic_steps
-        self.optimizerG=nn.RMSprop(self.netG.parameters(), lr=0.0002)
-        self.optimizerD=nn.RMSprop(self.netD.parameters(), lr=0.0002)
+        # self.optimizerG=nn.RMSprop(self.netG.parameters(), lr=0.0002)
+        # self.optimizerD=nn.RMSprop(self.netD.parameters(), lr=0.0002)
+
+        self.optimizerG=nn.Adam(self.netG.parameters(), lr=2e-4,betas=(0,0.9))
+        self.optimizerD=nn.Adam(self.netD.parameters(), lr=2e-4,betas=(0,0.9))
 
         self.wandb_run=wandb_run
 
-        self.netD.apply(init_weights)
-        self.netG.apply(init_weights)
+        # self.netD.apply(init_weights)
+        # self.netG.apply(init_weights)
 
     def train(self):    
 
@@ -224,14 +240,17 @@ class WGAN_Manager():
             for _ in range(0, self.critic_steps):
                 real , label=next(train_gen)
                 # 注意这里必须全都是32类型
-                real=jt.transpose(real, (0, 3, 1, 2)).float32()
+                real=jt.float32(real)
+                real=real*2/255-1
+                real=jt.transpose(real, (0, 3, 1, 2))
                 noise=jt.float32(np.random.randn(real.shape[0],128))
 
                 loss_D_real=-self.netD(real).mean()
                 loss_D_real.sync()
                 self.optimizerD.step(loss_D_real)
 
-                loss_D_fake=self.netD(self.netG(noise)).mean()
+                fake=self.netG(noise).detach()
+                loss_D_fake=self.netD(fake).mean()
                 loss_D_fake.sync()
                 self.optimizerG.step(loss_D_fake)
 
@@ -242,7 +261,7 @@ class WGAN_Manager():
                     param.safe_clip(-0.01,0.01)
 
             if i%100==0: 
-                self.wandb_run.log({'real img':[wandb.Image(real[0].transpose(1,2,0).numpy())]}, step=i)
+                self.wandb_run.log({'real img':[wandb.Image((real[0].transpose(1,2,0).numpy()+1)*255/2)]}, step=i)
             
             
             # 训练生成器
@@ -259,7 +278,7 @@ class WGAN_Manager():
 
                 self.wandb_run.log({'lossD':np.mean(loss_D_list)}, step=i)
                 self.wandb_run.log({'lossG':loss.data[0]}, step=i)
-                self.wandb_run.log({'img':[wandb.Image(gen[j].transpose(1,2,0).numpy()) for j in np.random.choice(64,5, replace=False)]}, step=i)
+                self.wandb_run.log({'img':[wandb.Image((gen[j].transpose(1,2,0).numpy()+1)*255/2) for j in np.random.choice(64,5, replace=False)]}, step=i)
 
 
     def test(self):
