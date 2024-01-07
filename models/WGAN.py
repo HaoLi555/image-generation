@@ -96,32 +96,88 @@ class Generator(nn.Module):
 
         return x
 
-class Discriminator(nn.Module):
-    def __init__(self, in_channel=3, hidden_dim=16):
-        super(Discriminator, self).__init__()
+class DiscriminatorBlock(nn.Module):
+    def __init__(self, in_channel, out_channel, downsample=False):
+        super(DiscriminatorBlock, self).__init__()
         self.in_channel=in_channel
-        self.hidden_dim=hidden_dim
+        self.out_channel=out_channel
+        self.downsample=downsample
 
-        self.encoder=nn.Sequential(
-            nn.Conv2d(in_channel,hidden_dim,4,2,1),
-            nn.LeakyReLU(),
+        if in_channel!=out_channel:
+            self.shortcut_conv=nn.Conv(in_channel, out_channel, kernel_size=1)
+        else:
+            self.shortcut_conv=None
 
-            nn.Conv2d(hidden_dim,hidden_dim*2,4,2,1),
-            nn.BatchNorm2d(hidden_dim*2),
-            nn.LeakyReLU(),
-
-            nn.Conv2d(hidden_dim*2,hidden_dim*4,4,2,1),
-            nn.BatchNorm2d(hidden_dim*4),
-            nn.LeakyReLU(),
-
-            nn.Conv2d(hidden_dim*4,1,4,1,0),
-
-        )
+        self.bn1=nn.BatchNorm(in_channel)
+        self.conv1=nn.Conv(in_channel, in_channel, kernel_size=3, padding=1)
+        self.bn2=nn.BatchNorm(in_channel)
+        self.conv2=nn.Conv(in_channel, out_channel, kernel_size=3, padding=1)
 
     def execute(self, x):
-        x=self.encoder(x)
+        if self.downsample:
+            shortcut=nn.pool(x, 2, 'mean')
+        else:
+            shortcut=x
+
+        if self.shortcut_conv is not None:
+            shortcut=self.shortcut_conv(shortcut)
+
+        x=self.bn1(x)
+        x=nn.relu(x)
+        if self.downsample:
+            x=nn.pool(x, 2, 'mean')
+        x=self.conv1(x)
+        x=self.bn2(x)
+        x=nn.relu(x)
+        x=self.conv2(x)
+
+        return x+shortcut
+
+
+class Discriminator(nn.Module):
+    def __init__(self, in_channel=3, channel=128):
+        super(Discriminator, self).__init__()
+        self.in_channel=in_channel
+        self.channel=channel
+
+        # self.encoder=nn.Sequential(
+        #     nn.Conv2d(in_channel,hidden_dim,4,2,1),
+        #     nn.LeakyReLU(),
+
+        #     nn.Conv2d(hidden_dim,hidden_dim*2,4,2,1),
+        #     nn.BatchNorm2d(hidden_dim*2),
+        #     nn.LeakyReLU(),
+
+        #     nn.Conv2d(hidden_dim*2,hidden_dim*4,4,2,1),
+        #     nn.BatchNorm2d(hidden_dim*4),
+        #     nn.LeakyReLU(),
+
+        #     nn.Conv2d(hidden_dim*4,1,4,1,0),
+
+        # )
+        self.block1=DiscriminatorBlock(in_channel, channel, downsample=True)
+        self.block2=DiscriminatorBlock(channel, channel, downsample=True)
+        self.block3=DiscriminatorBlock(channel, channel, downsample=False)
+        self.block4=DiscriminatorBlock(channel, channel, downsample=False)
+
+        self.linear=nn.Linear(channel, 1)
+
+
+
+    def execute(self, x):
+        x=self.block1(x)
+        x=self.block2(x)
+        x=self.block3(x)
+        x=self.block4(x)
+
+        x=nn.relu(x)
+        x=x.mean(-1, keepdims=False).mean(-1, keepdims=False)
+        x=nn.reshape(x, (-1, self.channel))
+        x=self.linear(x)
+
         return x
-    
+
+
 def init_weights(m):
     if type(m)==nn.Conv2d:
         init.trunc_normal_(m.weight, std=0.02)
