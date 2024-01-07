@@ -8,26 +8,31 @@ from PIL import Image
 from jittor import init
 
 class Generator(nn.Module):
-    def __init__(self, in_channel=16, hidden_dim=256):
+    def __init__(self, in_channel=128, out_channel=128):
         super(Generator, self).__init__()
         self.in_channel=in_channel
-        self.hidden_dim=hidden_dim
+        self.out_channel=out_channel
+
+        # self.decoder=nn.Sequential(
+        #     nn.ConvTranspose2d(in_channel,hidden_dim*4,4,1,0),
+        #     nn.BatchNorm2d(hidden_dim*4),
+        #     nn.LeakyReLU(),
+       
+        #     nn.ConvTranspose2d(hidden_dim*4,hidden_dim*2,4,2,1),
+        #     nn.BatchNorm2d(hidden_dim*2),
+        #     nn.LeakyReLU(),
+        
+        #     nn.ConvTranspose2d(hidden_dim*2,hidden_dim,4,2,1),
+        #     nn.BatchNorm2d(hidden_dim),
+        #     nn.LeakyReLU(),
+
+        #     nn.ConvTranspose2d(hidden_dim,3,4,2,1),
+        #     nn.Tanh()
+        # )
 
         self.decoder=nn.Sequential(
-            nn.ConvTranspose2d(in_channel,hidden_dim*4,4,1,0),
-            nn.BatchNorm2d(hidden_dim*4),
-            nn.LeakyReLU(),
-       
-            nn.ConvTranspose2d(hidden_dim*4,hidden_dim*2,4,2,1),
-            nn.BatchNorm2d(hidden_dim*2),
-            nn.LeakyReLU(),
-        
-            nn.ConvTranspose2d(hidden_dim*2,hidden_dim,4,2,1),
-            nn.BatchNorm2d(hidden_dim),
-            nn.LeakyReLU(),
-
-            nn.ConvTranspose2d(hidden_dim,3,4,2,1),
-            nn.Tanh()
+            nn.Conv(in_channels=in_channel, out_channels=out_channel,kernel_size=3,stride=1)
+            
         )
 
     def execute(self, x):
@@ -76,7 +81,7 @@ def circle(iterable):
             yield x
 
 class WGAN_Manager():
-    def __init__(self, train_loader, test_loader, wandb_run, num_steps=5000, critic_steps=5) -> None:
+    def __init__(self, train_loader, test_loader, wandb_run, num_steps=5000, critic_steps=2) -> None:
         self.netG=Generator()
         self.netD=Discriminator()
         self.train_loader=train_loader
