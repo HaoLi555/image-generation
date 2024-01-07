@@ -8,7 +8,7 @@ from PIL import Image
 from jittor import init
 
 class Generator(nn.Module):
-    def __init__(self, in_channel=16, hidden_dim=16):
+    def __init__(self, in_channel=16, hidden_dim=256):
         super(Generator, self).__init__()
         self.in_channel=in_channel
         self.hidden_dim=hidden_dim
@@ -66,7 +66,7 @@ def init_weights(m):
     elif type(m)==nn.ConvTranspose2d:
         init.trunc_normal_(m.weight, std=0.02)
     elif type(m)==nn.BatchNorm2d:
-        init.normal_(m.weight, 1.0, 0.02)
+        init.trunc_normal_(m.weight, 1.0, 0.02)
         init.constant_(m.bias, 0)
 
 
@@ -76,7 +76,7 @@ def circle(iterable):
             yield x
 
 class WGAN_Manager():
-    def __init__(self, train_loader, test_loader, wandb_run, num_steps=10000, critic_steps=5) -> None:
+    def __init__(self, train_loader, test_loader, wandb_run, num_steps=5000, critic_steps=5) -> None:
         self.netG=Generator()
         self.netD=Discriminator()
         self.train_loader=train_loader
@@ -101,7 +101,7 @@ class WGAN_Manager():
 
         for i in tqdm(range(self.num_steps), desc='Training'):
 
-            loss_D=[]
+            loss_D_list=[]
             # 训练辨别器
             for _ in range(0, self.critic_steps):
                 real , label=next(train_gen)
@@ -109,17 +109,22 @@ class WGAN_Manager():
                 real=jt.transpose(real, (0, 3, 1, 2)).float32()
                 noise=jt.float32(np.random.randn(real.shape[0],16,1,1))
 
-                critic_real_mean=self.netD(real).mean()
-                critic_gen_mean=self.netD(self.netG(noise)).mean()
+                loss_D_real=-self.netD(real).mean()
+                loss_D_real.sync()
+                self.optimizerD.step(loss_D_real)
 
-                loss=critic_gen_mean-critic_real_mean
-                loss.sync()
-                self.optimizerD.step(loss)
-                loss_D.append(loss.data)
+                loss_D_fake=self.netD(self.netG(noise)).mean()
+                loss_D_fake.sync()
+                self.optimizerG.step(loss_D_fake)
+
+                loss_D=loss_D_real.data+loss_D_fake.data
+                loss_D_list.append(loss_D)
 
                 for param in  self.netD.parameters():
                     param.safe_clip(-0.01,0.01)
 
+            if i%100==0: 
+                self.wandb_run.log({'real img':[wandb.Image(real[0].transpose(1,2,0).numpy())]}, step=i)
             
             
             # 训练生成器
@@ -129,15 +134,12 @@ class WGAN_Manager():
             loss.sync()
             self.optimizerG.step(loss)
 
-            for param in  self.netG.parameters():
-                param.safe_clip(-0.01,0.01)
-
             if i%100==0: 
                 print(f"    step {i}:")
-                print(f"        lossD: {np.mean(loss_D)}")
+                print(f"        lossD: {np.mean(loss_D_list)}")
                 print(f"        lossG: {loss.data[0]}")
 
-                self.wandb_run.log({'lossD':np.mean(loss_D)}, step=i)
+                self.wandb_run.log({'lossD':np.mean(loss_D_list)}, step=i)
                 self.wandb_run.log({'lossG':loss.data[0]}, step=i)
                 self.wandb_run.log({'img':[wandb.Image(gen[j].transpose(1,2,0).numpy()) for j in np.random.choice(64,5, replace=False)]}, step=i)
 
