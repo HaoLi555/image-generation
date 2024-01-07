@@ -27,7 +27,7 @@ class GeneratorBlock(nn.Module):
 
     def execute(self, x):
         if self.upsample:
-            shortcut=nn.upsample(x, scale_factor=2, mode='nearest')
+            shortcut=nn.upsample(x,size=(2*x.shape[2],2*x.shape[3]), mode='nearest')
         else:
             shortcut=x
 
@@ -37,7 +37,7 @@ class GeneratorBlock(nn.Module):
         x=self.bn1(x)
         x=nn.relu(x)
         if self.upsample:
-            x=nn.upsample(x, scale_factor=2, mode='nearest')
+            x=nn.upsample(x, size=(2*x.shape[2],2*x.shape[3]), mode='nearest')
         x=self.conv1(x)
         x=self.bn2(x)
         x=nn.relu(x)
@@ -49,7 +49,7 @@ class GeneratorBlock(nn.Module):
 class Generator(nn.Module):
     def __init__(self, in_dim=128,in_channel=128, out_channel=3):
         super(Generator, self).__init__()
-        self.in_dim=self.in_dim
+        self.in_dim=in_dim
         self.out_channel=out_channel
 
         # self.decoder=nn.Sequential(
@@ -78,6 +78,8 @@ class Generator(nn.Module):
         self.bn=nn.BatchNorm(in_channel)
         self.conv=nn.Conv(in_channel, out_channel, kernel_size=3, padding=1)
 
+        self.tanh=nn.Tanh()
+
     def execute(self, x):
         x=self.linear(x)
         x=x.reshape(-1,128,4,4)
@@ -89,7 +91,8 @@ class Generator(nn.Module):
         x=self.bn(x)
         x=nn.relu(x)
         x=self.conv(x)
-        x=nn.tanh(x)
+        
+        x=self.tanh(x)
 
         return x
 
@@ -135,7 +138,7 @@ def circle(iterable):
             yield x
 
 class WGAN_Manager():
-    def __init__(self, train_loader, test_loader, wandb_run, num_steps=5000, critic_steps=2) -> None:
+    def __init__(self, train_loader, test_loader, wandb_run, num_steps=5000, critic_steps=5) -> None:
         self.netG=Generator()
         self.netD=Discriminator()
         self.train_loader=train_loader
@@ -166,7 +169,7 @@ class WGAN_Manager():
                 real , label=next(train_gen)
                 # 注意这里必须全都是32类型
                 real=jt.transpose(real, (0, 3, 1, 2)).float32()
-                noise=jt.float32(np.random.randn(real.shape[0],16,1,1))
+                noise=jt.float32(np.random.randn(real.shape[0],128))
 
                 loss_D_real=-self.netD(real).mean()
                 loss_D_real.sync()
@@ -187,7 +190,7 @@ class WGAN_Manager():
             
             
             # 训练生成器
-            noise=jt.float32(np.random.randn(64,16,1,1))
+            noise=jt.float32(np.random.randn(64,128))
             gen=self.netG(noise)
             loss=-self.netD(gen).mean()
             loss.sync()
@@ -209,7 +212,7 @@ class WGAN_Manager():
         self.netD.eval()
 
 
-        noise=jt.float32(np.random.randn(16,16,1,1))
+        noise=jt.float32(np.random.randn(16,128))
         imgs=self.netG(noise).data
         for index, img in enumerate(imgs):
             img=img.transpose(1,2,0)
