@@ -172,7 +172,7 @@ class Discriminator(nn.Module):
 
         x=nn.relu(x)
         x=x.mean(-1, keepdims=False).mean(-1, keepdims=False)
-        x=nn.reshape(x, (-1, self.channel))
+        x=x.reshape((-1, self.channel))
         x=self.linear(x)
 
         return x
@@ -202,8 +202,8 @@ class WGAN_Manager():
         self.num_steps=num_steps
         # 生成器每迭代一次，判别器迭代的次数
         self.critic_steps=critic_steps
-        self.optimizerG=nn.RMSprop(self.netG.parameters(), lr=0.00005)
-        self.optimizerD=nn.RMSprop(self.netD.parameters(), lr=0.00005)
+        self.optimizerG=nn.RMSprop(self.netG.parameters(), lr=0.0002)
+        self.optimizerD=nn.RMSprop(self.netD.parameters(), lr=0.0002)
 
         self.wandb_run=wandb_run
 
