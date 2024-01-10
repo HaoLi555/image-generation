@@ -5,3 +5,6 @@
     - `WGAN.py`定义WGAN以及对应的训练过程
 - `gift.py`是用于生成动图的脚本
 - `run.py`运行入口
+- `net.txt`说明网络结构
+- results包含了最终结果
+- gifs包含了训练过程中输出的变化

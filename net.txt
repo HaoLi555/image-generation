@@ -1,0 +1,97 @@
+WGAN:
+Generator(
+    linear: Linear(128, 2048, float32[2048,], None)
+    block1: GeneratorBlock(
+        bn1: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+        conv1: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+        bn2: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+        conv2: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+    )
+    block2: GeneratorBlock(
+        bn1: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+        conv1: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+        bn2: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+        conv2: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+    )
+    block3: GeneratorBlock(
+        bn1: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+        conv1: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+        bn2: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+        conv2: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+    )
+    bn: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+    conv: Conv(128, 3, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[3,], None, Kw=None, fan=None, i=None, bound=None)
+    tanh: Tanh()
+)
+Discriminator(
+    block1: DiscriminatorBlock(
+        shortcut_conv: Conv(3, 128, (1, 1), (1, 1), (0, 0), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+        conv1: Conv(3, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+        conv2: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+    )
+    block2: DiscriminatorBlock(
+        conv1: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+        conv2: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+    )
+    block3: DiscriminatorBlock(
+        conv1: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+        conv2: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+    )
+    block4: DiscriminatorBlock(
+        conv1: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+        conv2: Conv(128, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+    )
+    linear: Linear(128, 1, float32[1,], None)
+)
+
+
+
+Beta_VAE(
+    encoder: Encoder(
+        conv_block: Sequential(
+            0: Conv(3, 32, (4, 4), (2, 2), (1, 1), (1, 1), 1, float32[32,], None, Kw=None, fan=None, i=None, bound=None)
+            1: relu()
+            2: BatchNorm(32, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+            3: Conv(32, 64, (4, 4), (2, 2), (1, 1), (1, 1), 1, float32[64,], None, Kw=None, fan=None, i=None, bound=None)
+            4: relu()
+            5: BatchNorm(64, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+            6: Conv(64, 128, (3, 3), (1, 1), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+            7: relu()
+            8: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+            9: Conv(128, 128, (4, 4), (2, 2), (1, 1), (1, 1), 1, float32[128,], None, Kw=None, fan=None, i=None, bound=None)
+            10: relu()
+            11: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+            12: Conv(128, 256, (4, 4), (1, 1), (0, 0), (1, 1), 1, float32[256,], None, Kw=None, fan=None, i=None, bound=None)
+            13: relu()
+            14: BatchNorm(256, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+        )
+        flatten: Linear(256, 1024, float32[1024,], None)
+        linear: Linear(1024, 200, float32[200,], None)
+    )
+    decoder: Decoder(
+        linear_block: Sequential(
+            0: Linear(100, 1024, float32[1024,], None)
+            1: relu()
+            2: Linear(1024, 4096, float32[4096,], None)
+            3: relu()
+        )
+        convtrans_block: Sequential(
+            0: ConvTranspose(256, 256, (4, 4), (2, 2), (1, 1), (0, 0), 1, bias=float32[256,], dilation=(1, 1), fan=None, i=None, bound=None)
+            1: relu()
+            2: BatchNorm(256, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+            3: ConvTranspose(256, 256, (3, 3), (1, 1), (1, 1), (0, 0), 1, bias=float32[256,], dilation=(1, 1), fan=None, i=None, bound=None)
+            4: relu()
+            5: BatchNorm(256, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+            6: ConvTranspose(256, 128, (4, 4), (2, 2), (1, 1), (0, 0), 1, bias=float32[128,], dilation=(1, 1), fan=None, i=None, bound=None)
+            7: relu()
+            8: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+            9: ConvTranspose(128, 128, (3, 3), (1, 1), (1, 1), (0, 0), 1, bias=float32[128,], dilation=(1, 1), fan=None, i=None, bound=None)
+            10: relu()
+            11: BatchNorm(128, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+            12: ConvTranspose(128, 64, (4, 4), (2, 2), (1, 1), (0, 0), 1, bias=float32[64,], dilation=(1, 1), fan=None, i=None, bound=None)
+            13: relu()
+            14: BatchNorm(64, 1e-05, momentum=0.1, affine=True, is_train=True, sync=True)
+            15: ConvTranspose(64, 3, (3, 3), (1, 1), (1, 1), (0, 0), 1, bias=float32[3,], dilation=(1, 1), fan=None, i=None, bound=None)
+        )
+    )
+)

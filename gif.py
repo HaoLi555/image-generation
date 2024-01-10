@@ -14,15 +14,16 @@ if __name__ == '__main__':
     # 生成的图片所在的文件夹路径
     image_folder = 'train_wgan' if args.model.lower() == 'wgan' else 'train_beta_vae'
 
+    if not os.path.exists('gifs'):
+        os.makedirs('gifs')
+
     # 输出的 GIF 文件路径
     output_gif_path = 'gifs/wgan.gif' if args.model.lower(
     ) == 'wgan' else f'gifs/{args.beta}_vae.gif'
 
     # 获取图片文件列表
-    images = [img for img in os.listdir(image_folder) if img.endswith(".png")]
+    images = [f"wgan_{i}.png" for i in range(0,100)] if args.model.lower() =='wgan' else [f"{args.beta}_vae{i}.png" for i in range(0, 50)]
 
-    # 排序确保顺序正确
-    images.sort()
 
     # 创建一个空白的图像列表
     image_list = []

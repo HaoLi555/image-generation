@@ -285,6 +285,7 @@ class WGAN_Manager():
                 
                 # 展示生成图片
                 imgs=jt.misc.make_grid(gen, nrow=8)
+                imgs=(imgs+1)/2*255
                 imgs=imgs.transpose(1,2,0).astype(np.uint8)
                 self.wandb_run.log({'img': wandb.Image(imgs)}, step=i)
 
