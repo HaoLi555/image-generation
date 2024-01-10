@@ -22,8 +22,8 @@ if __name__ == '__main__':
     ) == 'wgan' else f'gifs/{args.beta}_vae.gif'
 
     # 获取图片文件列表
-    images = [f"wgan_{i}.png" for i in range(0,100)] if args.model.lower() =='wgan' else [f"{args.beta}_vae{i}.png" for i in range(0, 50)]
-
+    images = [f"wgan_{i}.png" for i in range(0, 100)] if args.model.lower(
+    ) == 'wgan' else [f"{args.beta}_vae{i}.png" for i in range(0, 50)]
 
     # 创建一个空白的图像列表
     image_list = []
