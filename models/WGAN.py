@@ -197,7 +197,7 @@ def circle(iterable):
 
 
 class WGAN_Manager():
-    def __init__(self, train_loader, test_loader, wandb_run, num_steps=1, critic_steps=5, k=2, p=6, show_real_image=False) -> None:
+    def __init__(self, train_loader, test_loader, wandb_run, num_steps=10000, critic_steps=5, k=2, p=6, show_real_image=False) -> None:
         self.netG = Generator()
         self.netD = Discriminator()
         self.train_loader = train_loader
