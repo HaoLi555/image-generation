@@ -197,7 +197,7 @@ def circle(iterable):
 
 
 class WGAN_Manager():
-    def __init__(self, train_loader, test_loader, wandb_run, num_steps=10000, critic_steps=5, k=2, p=6, show_real_image=False) -> None:
+    def __init__(self, train_loader, test_loader, wandb_run, num_steps=1, critic_steps=5, k=2, p=6, show_real_image=False) -> None:
         self.netG = Generator()
         self.netD = Discriminator()
         self.train_loader = train_loader
@@ -211,9 +211,9 @@ class WGAN_Manager():
 
         # 优化器定义
         self.optimizerG = nn.Adam(
-            self.netG.parameters(), lr=2e-4, betas=(0.5, 0.9))
+            self.netG.parameters(), lr=2e-4, betas=(0, 0.9))
         self.optimizerD = nn.Adam(
-            self.netD.parameters(), lr=2e-4, betas=(0.5, 0.9))
+            self.netD.parameters(), lr=2e-4, betas=(0, 0.9))
 
         self.wandb_run = wandb_run
 
@@ -283,8 +283,8 @@ class WGAN_Manager():
                 self.wandb_run.log({'lossD': np.mean(loss_D_list)}, step=i)
                 self.wandb_run.log({'lossG': loss.data[0]}, step=i)
                 # 随机展示生成图片
-                self.wandb_run.log({'img': [wandb.Image((gen[j].transpose(1, 2, 0).numpy(
-                )+1)*255/2) for j in np.random.choice(64, 5, replace=False)]}, step=i)
+                self.wandb_run.log({'img': wandb.Image(np.concatenate([(gen[j].transpose(1, 2, 0).numpy(
+                )+1)*255/2 for j in np.random.choice(64, 5, replace=False)],axis=1))}, step=i)
 
     def test(self):
 
@@ -294,15 +294,28 @@ class WGAN_Manager():
         noise = jt.float32(np.random.randn(64, 128))
         imgs = self.netG(noise).data
 
+        col=8
+        row=8
+        temp=[]
+        for i in range(0,row):
+            one_row=[]
+            for j in range(0,col):
+                index=i*col+j
+                one_row.append(imgs[index])
+            one_row=np.concatenate(one_row, axis=2)
+            temp.append(one_row)
+        temp=np.concatenate(temp, axis=1)
+
+        temp=np.transpose(temp, [1,2,0])
+        temp=(temp+1)*255/2
+        temp=temp.astype(np.uint8)
+        img=Image.fromarray(temp)
+
         if not os.path.exists('results'):
             os.makedirs('results')
 
-        for index, img in enumerate(imgs):
-            img = img.transpose(1, 2, 0)
-            img = (img+1)*255/2
-            img = img.astype(np.uint8)
-            img = Image.fromarray(img)
-            img.save(f'results/{index}.png')
+        img.save('results/WGAN.png')
+
 
 
 if __name__ == "__main__":
