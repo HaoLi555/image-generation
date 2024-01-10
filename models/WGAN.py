@@ -5,6 +5,7 @@ import numpy as np
 from tqdm import tqdm
 import wandb
 from PIL import Image
+import os
 
 
 class GeneratorBlock(nn.Module):
@@ -252,7 +253,7 @@ class WGAN_Manager():
                 fake_grad_norm = jt.sum(
                     jt.pow(fake_grad, 2), dims=(1, 2, 3)).sqrt()
                 grad_loss = (self.k/2)*jt.mean(real_grad_norm **
-                                               self.p, fake_grad_norm**self.p)
+                                               self.p + fake_grad_norm**self.p)
 
                 # 总的损失——散度
                 tot_loss = grad_loss+fake_score-real_score
@@ -290,10 +291,15 @@ class WGAN_Manager():
         self.netG.eval()
         self.netD.eval()
 
-        noise = jt.float32(np.random.randn(16, 128))
+        noise = jt.float32(np.random.randn(64, 128))
         imgs = self.netG(noise).data
+
+        if not os.path.exists('results'):
+            os.makedirs('results')
+
         for index, img in enumerate(imgs):
             img = img.transpose(1, 2, 0)
+            img = (img+1)*255/2
             img = img.astype(np.uint8)
             img = Image.fromarray(img)
             img.save(f'results/{index}.png')
