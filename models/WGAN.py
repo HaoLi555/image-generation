@@ -282,9 +282,16 @@ class WGAN_Manager():
 
                 self.wandb_run.log({'lossD': np.mean(loss_D_list)}, step=i)
                 self.wandb_run.log({'lossG': loss.data[0]}, step=i)
-                # 随机展示生成图片
-                self.wandb_run.log({'img': wandb.Image(np.concatenate([(gen[j].transpose(1, 2, 0).numpy(
-                )+1)*255/2 for j in np.random.choice(64, 5, replace=False)], axis=1))}, step=i)
+                
+                # 展示生成图片
+                imgs=jt.misc.make_grid(gen, nrow=8)
+                imgs=imgs.transpose(1,2,0).astype(np.uint8)
+                self.wandb_run.log({'img': wandb.Image(imgs)}, step=i)
+
+                save_imgs=Image.fromarray(imgs.numpy())
+                if not os.path.exists('train_wgan'):
+                    os.mkdir('train_wgan')
+                save_imgs.save(f"train_wgan/wgan_{int(i/100)}.png")
 
     def test(self):
 
@@ -317,17 +324,3 @@ class WGAN_Manager():
         img.save('results/WGAN.png')
 
 
-if __name__ == "__main__":
-    if jt.has_cuda:
-        jt.flags.use_cuda = 1
-
-    wandb_run = wandb.init(
-        project='image-gen',
-    )
-
-    train_loader = CIFAR10(train=True).set_attrs(shuffle=True, batch_size=64)
-    test_loader = CIFAR10(train=False).set_attrs(shuffle=True, batch_size=64)
-
-    manager = WGAN_Manager(train_loader, test_loader, wandb_run=wandb_run)
-    manager.train()
-    manager.test()
