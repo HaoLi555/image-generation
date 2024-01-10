@@ -284,7 +284,7 @@ class WGAN_Manager():
                 self.wandb_run.log({'lossG': loss.data[0]}, step=i)
                 # 随机展示生成图片
                 self.wandb_run.log({'img': wandb.Image(np.concatenate([(gen[j].transpose(1, 2, 0).numpy(
-                )+1)*255/2 for j in np.random.choice(64, 5, replace=False)],axis=1))}, step=i)
+                )+1)*255/2 for j in np.random.choice(64, 5, replace=False)], axis=1))}, step=i)
 
     def test(self):
 
@@ -294,28 +294,27 @@ class WGAN_Manager():
         noise = jt.float32(np.random.randn(64, 128))
         imgs = self.netG(noise).data
 
-        col=8
-        row=8
-        temp=[]
-        for i in range(0,row):
-            one_row=[]
-            for j in range(0,col):
-                index=i*col+j
+        col = 8
+        row = 8
+        temp = []
+        for i in range(0, row):
+            one_row = []
+            for j in range(0, col):
+                index = i*col+j
                 one_row.append(imgs[index])
-            one_row=np.concatenate(one_row, axis=2)
+            one_row = np.concatenate(one_row, axis=2)
             temp.append(one_row)
-        temp=np.concatenate(temp, axis=1)
+        temp = np.concatenate(temp, axis=1)
 
-        temp=np.transpose(temp, [1,2,0])
-        temp=(temp+1)*255/2
-        temp=temp.astype(np.uint8)
-        img=Image.fromarray(temp)
+        temp = np.transpose(temp, [1, 2, 0])
+        temp = (temp+1)*255/2
+        temp = temp.astype(np.uint8)
+        img = Image.fromarray(temp)
 
         if not os.path.exists('results'):
             os.makedirs('results')
 
         img.save('results/WGAN.png')
-
 
 
 if __name__ == "__main__":
