@@ -5,25 +5,28 @@ import numpy as np
 from tqdm import tqdm
 import wandb
 from PIL import Image
-from jittor import init
 
 
 class GeneratorBlock(nn.Module):
+    """生成器的残差块，可以进行channel变化以及上采样
+    
+    """
     def __init__(self, in_channel, out_channel, upsample=False):
         super(GeneratorBlock, self).__init__()
         self.in_channel=in_channel
         self.out_channel=out_channel
         self.upsample=upsample
 
+        # 用于残差连接
         if in_channel!=out_channel:
             self.shortcut_conv=nn.Conv(in_channel, out_channel, kernel_size=1)
         else:
             self.shortcut_conv=None
 
         self.bn1=nn.BatchNorm(in_channel)
-        self.conv1=nn.Conv(in_channel, in_channel, kernel_size=3, padding=1)
-        self.bn2=nn.BatchNorm(in_channel)
-        self.conv2=nn.Conv(in_channel, out_channel, kernel_size=3, padding=1)
+        self.conv1=nn.Conv(in_channel, out_channel, kernel_size=3, padding=1)
+        self.bn2=nn.BatchNorm(out_channel)
+        self.conv2=nn.Conv(out_channel, out_channel, kernel_size=3, padding=1)
 
     def execute(self, x):
         if self.upsample:
@@ -47,39 +50,30 @@ class GeneratorBlock(nn.Module):
 
 
 class Generator(nn.Module):
+    """由线性层、残差块、卷积层组成
+
+    """
     def __init__(self, in_dim=128,in_channel=128, out_channel=3):
         super(Generator, self).__init__()
         self.in_dim=in_dim
         self.out_channel=out_channel
 
-        # self.decoder=nn.Sequential(
-        #     nn.ConvTranspose2d(in_channel,hidden_dim*4,4,1,0),
-        #     nn.BatchNorm2d(hidden_dim*4),
-        #     nn.LeakyReLU(),
-       
-        #     nn.ConvTranspose2d(hidden_dim*4,hidden_dim*2,4,2,1),
-        #     nn.BatchNorm2d(hidden_dim*2),
-        #     nn.LeakyReLU(),
-        
-        #     nn.ConvTranspose2d(hidden_dim*2,hidden_dim,4,2,1),
-        #     nn.BatchNorm2d(hidden_dim),
-        #     nn.LeakyReLU(),
-
-        #     nn.ConvTranspose2d(hidden_dim,3,4,2,1),
-        #     nn.Tanh()
-        # )
-
         self.linear=nn.Linear(in_dim, 4*4*in_channel)
 
+        # 4*4
         self.block1=GeneratorBlock(in_channel, in_channel, upsample=True)
+        # 8*8
         self.block2=GeneratorBlock(in_channel, in_channel, upsample=True)
+        # 16*16
         self.block3=GeneratorBlock(in_channel, in_channel, upsample=True)
+        #32*32
 
         self.bn=nn.BatchNorm(in_channel)
         self.conv=nn.Conv(in_channel, out_channel, kernel_size=3, padding=1)
 
         self.tanh=nn.Tanh()
 
+        # 参数初始化
         relu_gain = nn.init.calculate_gain('relu')
         for module in self.modules():
             if isinstance(module, (nn.Conv, nn.Linear)):
@@ -145,21 +139,6 @@ class Discriminator(nn.Module):
         self.in_channel=in_channel
         self.channel=channel
 
-        # self.encoder=nn.Sequential(
-        #     nn.Conv2d(in_channel,hidden_dim,4,2,1),
-        #     nn.LeakyReLU(),
-
-        #     nn.Conv2d(hidden_dim,hidden_dim*2,4,2,1),
-        #     nn.BatchNorm2d(hidden_dim*2),
-        #     nn.LeakyReLU(),
-
-        #     nn.Conv2d(hidden_dim*2,hidden_dim*4,4,2,1),
-        #     nn.BatchNorm2d(hidden_dim*4),
-        #     nn.LeakyReLU(),
-
-        #     nn.Conv2d(hidden_dim*4,1,4,1,0),
-
-        # )
         self.block1=DiscriminatorBlock(in_channel, channel, downsample=True, first=True)
         self.block2=DiscriminatorBlock(channel, channel, downsample=True)
         self.block3=DiscriminatorBlock(channel, channel, downsample=False)
@@ -188,23 +167,14 @@ class Discriminator(nn.Module):
         return x
 
 
-def init_weights(m):
-    if type(m)==nn.Conv2d:
-        init.trunc_normal_(m.weight, std=0.02)
-    # elif type(m)==nn.ConvTranspose2d:
-    #     init.trunc_normal_(m.weight, std=0.02)
-    elif type(m)==nn.BatchNorm2d:
-        init.trunc_normal_(m.weight, 1.0, 0.02)
-        init.constant_(m.bias, 0)
-
-
 def circle(iterable):
     while True:
         for x in iterable:
             yield x
 
 
-
+k=2
+p=6
 
 class WGAN_Manager():
     def __init__(self, train_loader, test_loader, wandb_run, num_steps=10000, critic_steps=5) -> None:
@@ -215,16 +185,12 @@ class WGAN_Manager():
         self.num_steps=num_steps
         # 生成器每迭代一次，判别器迭代的次数
         self.critic_steps=critic_steps
-        # self.optimizerG=nn.RMSprop(self.netG.parameters(), lr=0.0002)
-        # self.optimizerD=nn.RMSprop(self.netD.parameters(), lr=0.0002)
 
         self.optimizerG=nn.Adam(self.netG.parameters(), lr=2e-4,betas=(0,0.9))
         self.optimizerD=nn.Adam(self.netD.parameters(), lr=2e-4,betas=(0,0.9))
 
         self.wandb_run=wandb_run
 
-        # self.netD.apply(init_weights)
-        # self.netG.apply(init_weights)
 
     def train(self):    
 
@@ -245,20 +211,24 @@ class WGAN_Manager():
                 real=jt.transpose(real, (0, 3, 1, 2))
                 noise=jt.float32(np.random.randn(real.shape[0],128))
 
-                loss_D_real=-self.netD(real).mean()
-                loss_D_real.sync()
-                self.optimizerD.step(loss_D_real)
+                fake=self.netG(noise)
 
-                fake=self.netG(noise).detach()
-                loss_D_fake=self.netD(fake).mean()
-                loss_D_fake.sync()
-                self.optimizerG.step(loss_D_fake)
+                real_score=jt.mean(self.netD(real))
+                fake_score=jt.mean(self.netD(fake))
 
-                loss_D=loss_D_real.data+loss_D_fake.data
-                loss_D_list.append(loss_D)
+                real_grad=jt.grad(real_score,real)
+                fake_grad=jt.grad(fake_score, fake)
 
-                for param in  self.netD.parameters():
-                    param.safe_clip(-0.01,0.01)
+                real_grad_norm=jt.sum(jt.pow(real_grad,2),dims=(1,2,3)).sqrt()
+                fake_grad_norm=jt.sum(jt.pow(fake_grad, 2), dims=(1,2,3)).sqrt()
+                grad_loss=(k/2)*jt.mean(real_grad_norm**p, fake_grad_norm**p)
+
+                tot_loss=grad_loss+fake_score-real_score
+
+                tot_loss.sync()
+
+                self.optimizerD.step(tot_loss)
+
 
             if i%100==0: 
                 self.wandb_run.log({'real img':[wandb.Image((real[0].transpose(1,2,0).numpy()+1)*255/2)]}, step=i)
